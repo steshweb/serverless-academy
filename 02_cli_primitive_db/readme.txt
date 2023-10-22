@@ -1,1 +1,1 @@
-1. To start the programm, enter npm start into the console.
+1. To start the program, enter npm start into the console.
