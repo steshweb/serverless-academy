@@ -1,7 +1,7 @@
 {
-  "name": "03_cli_telegram_console_sender",
+  "name": "04_telegram_bot_weather_forecast",
   "version": "1.0.0",
-  "description": "1. To start the program, enter npm start into the console.",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "env $(cat .env | xargs) node app.js"
@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^11.1.0",
+    "axios": "^1.5.1",
     "node-telegram-bot-api": "^0.63.0"
-  },
-  "devDependencies": {}
+  }
 }
