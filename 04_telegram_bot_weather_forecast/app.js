@@ -36,9 +36,15 @@ const getFetchData = async () => {
 const sendMessage = async(chatId) => {
   try {
     const data = await getFetchData();
-    const result = data.list[0].main;
-    const response = Object.keys(result).map(key => `${key}: ${result[key]}`).join('\n');
-    bot.sendMessage(chatId, response);
+    const { main: { temp, feels_like, pressure, humidity }, wind: { speed }}= data.list[0];
+    const message = 
+    `Temperature: ${temp}°C\n` +
+    `Feels like: ${feels_like}°C\n` +
+    `Pressure: ${(pressure / 1.3).toFixed(0)}mm\n` +
+    `Wind speed: ${speed}m/s\n` +
+    `Humidity: ${humidity}%\n`;
+
+    bot.sendMessage(chatId, message);
   }
   catch (err) {
     bot.sendMessage(chatId, 'Error, something went wrong.');

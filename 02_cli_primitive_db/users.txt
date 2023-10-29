@@ -1,56 +1,21 @@
 [
   {
-    "name": "john",
+    "name": "andre",
     "gender": "Male",
-    "age": "18"
+    "age": "22"
   },
   {
-    "name": "Andrew",
-    "gender": "Male",
+    "name": "Helen",
+    "gender": "Female",
     "age": "33"
   },
   {
     "name": "Olga",
     "gender": "Female",
-    "age": "44"
+    "age": "55"
   },
   {
-    "name": "Nikolay",
-    "gender": "Male",
-    "age": "34"
-  },
-  {
-    "name": "Ivan",
-    "gender": "Male",
-    "age": "87"
-  },
-  {
-    "name": "andrew",
-    "gender": "Male",
-    "age": "20"
-  },
-  {
-    "name": "andrew",
-    "gender": "Male",
-    "age": "23"
-  },
-  {
-    "name": "andrew",
-    "gender": "Male",
-    "age": "23"
-  },
-  {
-    "name": "helen",
-    "gender": "Female",
-    "age": "21"
-  },
-  {
-    "name": "andrew",
-    "gender": "Male",
-    "age": "22"
-  },
-  {
-    "name": "andrew",
+    "name": "Adam",
     "gender": "Male",
     "age": "22"
   }

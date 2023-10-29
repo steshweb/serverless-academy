@@ -54,10 +54,10 @@ bot.onText(/USD|EUR/, async(msg, match) => {
   const sendMessage = (privatCur, monoCur) => {
     bot.sendMessage(chatId, 
       `Current Rates ${currency} in Privat:\n` + 
-      `buy - ${rateNormalize(privatCur.buy)}, sale - ${rateNormalize(privatCur.sale)}\n` +
+      `Buy:  ${rateNormalize(privatCur.buy)} UAH, Sale:  ${rateNormalize(privatCur.sale)} UAH\n` +
       '\n' +
       `Current Rates ${currency} in Mono:\n` +
-      `buy - ${rateNormalize(monoCur.rateBuy)}, sale - ${rateNormalize(monoCur.rateSell)}\n`
+      `Buy:  ${rateNormalize(monoCur.rateBuy)} UAH, Sale:  ${rateNormalize(monoCur.rateSell)} UAH\n`
     );
   }
 
