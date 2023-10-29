@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
-const NodeCache = require( "node-cache" );
+const NodeCache = require('node-cache');
 
 const { TOKEN } = process.env;
 const monoURL = 'https://api.monobank.ua/bank/currency';
@@ -77,7 +77,8 @@ bot.onText(/USD|EUR/, async(msg, match) => {
 
       sendMessage(privatEUR, monoEUR);
     }
-  } catch (error) {
+  } 
+  catch (error) {
     bot.sendMessage(chatId, 'Error, something went wrong.')
   }
 });

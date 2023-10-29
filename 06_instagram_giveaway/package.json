@@ -1,0 +1,12 @@
+{
+  "name": "06_instagram_giveaway",
+  "version": "1.0.0",
+  "description": "1. To start the program, enter npm start into the console.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

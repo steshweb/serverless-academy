@@ -19,7 +19,7 @@ const addUser = async (user) => {
 const findUser = async (name) => {
   const users = await listUsers();
   const user = users.find(item => item.name.toLowerCase() === name.toLowerCase());
-  return user || null;
+  return user;
 }
 
 function startApp() {
@@ -58,6 +58,7 @@ function startApp() {
             gender: userInfo.gender,
             age: userInfo.age,
           };
+
           await addUser(user);
           startApp();
         });

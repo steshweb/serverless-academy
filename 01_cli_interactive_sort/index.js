@@ -1,7 +1,7 @@
 const readline = require('readline');
 
 const message = 'Enter a few words or numbers separated by space (or type "exit" to quit): ';
-const querstion = 'What would you like to do with the input?\n' +
+const question = 'What would you like to do with the input?\n' +
 '1. Sort words alphabetically\n' +
 '2. Show numbers from lesser to greater\n' +
 '3. Show numbers from bigger to smaller\n' +
@@ -40,7 +40,7 @@ const getUserInput = () => {
 function processInput(input) {
   const items = input.split(' ');
 
-  rl.question(querstion, (choice) => {
+  rl.question(question, (choice) => {
     switch (parseInt(choice)) {
       case 1:
         console.log(getSortWordsAsc(items));
