@@ -1,0 +1,1 @@
+To start the program, enter npm start into the console.

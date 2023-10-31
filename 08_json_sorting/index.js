@@ -4,10 +4,24 @@ const endpoints = require('./endpoints');
 const fetch = async(url) => {
   try {
     const result = await axios.get(url);
-    console.log(result.data);
+    return result.data;
   }
   catch (error){
-    return error.message;
+    throw error
+  }
+}
+
+const checkData = data => {
+  for(const key in data) {
+    if(typeof data[key] === 'object') {
+      const result = checkData(data[key]);
+      if (result !== undefined) {
+        return result;
+      }
+    }
+    else if (key === 'isDone') {
+      return data[key];
+    }
   }
 }
 
@@ -20,21 +34,26 @@ const start = async () => {
 
     while(count > 0) {
       try {
-        await fetch(endpoint);
+        const data = await fetch(endpoint);
+        const result = checkData(data);
+        console.log(`[Success] ${endpoint}: isDone - ${result}`);
+        result ? trueCount += 1 : falseCount += 1;
         break
       }
       catch {
-        console.log('catch count')
         count -= 1;
       }
     }
-
-    console.log(count);
 
     if(count === 0) {
       console.log(`[Fail] ${endpoint}: The endpoint is unavailable`);
     }
   }
+
+  console.log(
+    `Found True values: ${trueCount},\n` +
+    `Found False values: ${falseCount}`
+    );
 }
 
 start();
