@@ -23,7 +23,6 @@ const existInAtleastTen = async() => {
     }
   }
   const commonUsernames = Object.entries(totalUsermanes).filter(([_, count]) => count >= 10);
-
   console.log('Amount usernames occur in at least 10 files:', commonUsernames.length);
   console.timeEnd('existInAtleastTen');
 }
@@ -51,7 +50,6 @@ const existInAllFiles = async() => {
     });
     }
   }
-
   console.log('Amount usernames occur in all files:', commonWords.size);
   console.timeEnd('existInAllFiles');
 }
@@ -66,13 +64,47 @@ const uniqueValues = async() => {
     total.push(...arr);
   }
 
-  const uniqueValues = new Set(total)
+  const uniqueValues = new Set(total);
   console.log('Total amount of unique usernames:', uniqueValues.size);
   console.timeEnd('getAllNames');
+}
+
+const allresults = async() => {
+  console.time('allResults');
+
+  const directoryPath = './data/';
+  const totalUsermanes = {};
+  
+  const fileNames = await fs.readdir(directoryPath);
+
+  for (const fileName of fileNames) {
+    const filePath = path.join(directoryPath, fileName);
+    const fileContents = await fs.readFile(filePath, 'utf8');
+    const usernames = new Set(fileContents.split('\n'));
+
+    for (const username of usernames) {
+      if (!totalUsermanes[username]) {
+        totalUsermanes[username] = 1;
+      } else {
+        totalUsermanes[username] += 1;
+      }
+    }
+  }
+
+  const totalUniqueUsernames = Object.entries(totalUsermanes).length;
+  const commonUsernameInAllFiles = Object.entries(totalUsermanes).filter(([_, count]) => count === 20).length;
+  const commonUsernamesInAtleastTen = Object.entries(totalUsermanes).filter(([_, count]) => count >= 10).length;
+
+  console.log('Total amount of unique usernames:', totalUniqueUsernames);
+  console.log('Amount usernames occur in all files:', commonUsernameInAllFiles);
+  console.log('Amount usernames occur in at least 10 files:', commonUsernamesInAtleastTen);
+
+  console.timeEnd('allResults');
 }
 
 module.exports = {
   uniqueValues,
   existInAllFiles,
-  existInAtleastTen
+  existInAtleastTen,
+  allresults
 }
